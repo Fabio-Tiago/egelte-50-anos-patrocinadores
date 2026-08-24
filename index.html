@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Patrocinadores da celebração de 50 anos da Egelte Engenharia."
+    />
+    <meta name="theme-color" content="#e2be7a" />
+    <title>Patrocinadores | Egelte 50 Anos</title>
+
+    <style>
+      :root {
+        --fundo: #e2be7a;
+        --azul-egelte: #183d62;
+        --azul-egelte-escuro: #102b47;
+        --texto: #282218;
+        --branco: #fffdf8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        background: var(--fundo);
+        color: var(--texto);
+        font-family: Arial, Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .pagina {
+        width: min(100%, 1600px);
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 64px) clamp(18px, 4vw, 56px)
+          clamp(40px, 7vw, 88px);
+      }
+
+      .cabecalho {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: clamp(26px, 5vw, 54px);
+      }
+
+      .logo {
+        display: block;
+        width: clamp(260px, 40vw, 520px);
+        max-width: 90%;
+        height: auto;
+      }
+
+      .patrocinadores {
+        width: 100%;
+      }
+
+      .patrocinadores picture,
+      .patrocinadores img {
+        display: block;
+        width: 100%;
+      }
+
+      .patrocinadores img {
+        height: auto;
+        object-fit: contain;
+      }
+
+      .links {
+        padding-top: clamp(30px, 5vw, 58px);
+        text-align: center;
+      }
+
+      .linksTitulo {
+        font-size: clamp(22px, 3vw, 32px);
+        line-height: 1.15;
+        font-weight: 800;
+        color: var(--texto);
+        margin-bottom: 10px;
+      }
+
+      .linksTexto {
+        max-width: 680px;
+        margin: 0 auto clamp(22px, 4vw, 34px);
+        font-size: clamp(15px, 2vw, 18px);
+        line-height: 1.55;
+        color: rgba(40, 34, 24, 0.78);
+      }
+
+      .botoes {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        max-width: 1040px;
+        margin: 0 auto;
+      }
+
+      .botao {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 12px 22px;
+        border: 1.5px solid var(--azul-egelte);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--azul-egelte-escuro);
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        transition:
+          transform 160ms ease,
+          background 160ms ease,
+          color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .botao:hover {
+        transform: translateY(-2px);
+        background: var(--azul-egelte);
+        color: var(--branco);
+        box-shadow: 0 10px 24px rgba(24, 61, 98, 0.2);
+      }
+
+      .botao:active {
+        transform: translateY(0);
+      }
+
+      .botao:focus-visible {
+        outline: 3px solid var(--branco);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 900px) {
+        .botoes {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .pagina {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .cabecalho {
+          padding-bottom: 20px;
+        }
+
+        .logo {
+          width: min(82vw, 390px);
+        }
+
+        .botoes {
+          grid-template-columns: 1fr;
+          max-width: 430px;
+        }
+
+        .botao {
+          min-height: 50px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .botao {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="pagina">
+      <header class="cabecalho">
+        <img
+          class="logo"
+          src="/galeria/logo-egelte-50-anos.png"
+          alt="Egelte 50 Anos"
+          width="1512"
+          height="351"
+        />
+      </header>
+
+      <section class="patrocinadores" aria-label="Patrocinadores Egelte 50 Anos">
+        <picture>
+          <source
+            media="(max-width: 640px)"
+            srcset="/galeria/Rodape-Patrocinadores---V2---Mobile.jpg"
+          />
+          <img
+            src="/galeria/Rodape-Patrocinadores---V2---HD.jpg"
+            alt="Patrocinadores: Aeroar, Kepler Weber, Saur, Saturno, Energy Global e Vipp Mix"
+            width="1650"
+            height="928"
+          />
+        </picture>
+      </section>
+
+      <section class="links" aria-labelledby="links-titulo">
+        <h1 class="linksTitulo" id="links-titulo">Conheça nossos patrocinadores</h1>
+        <p class="linksTexto">
+          Escolha uma empresa para conhecer seu site e suas soluções.
+        </p>
+
+        <nav class="botoes" aria-label="Sites dos patrocinadores">
+          <a class="botao" href="https://aeroar.com.br/" target="_blank" rel="noopener noreferrer">
+            Aeroar
+          </a>
+          <a class="botao" href="https://kepler.com.br/" target="_blank" rel="noopener noreferrer">
+            Kepler Weber
+          </a>
+          <a class="botao" href="https://www.saur.com.br/" target="_blank" rel="noopener noreferrer">
+            Saur
+          </a>
+          <a class="botao" href="https://www.saturnosmart.com.br/" target="_blank" rel="noopener noreferrer">
+            Saturno
+          </a>
+          <a class="botao" href="https://www.energyglobal.com.br/" target="_blank" rel="noopener noreferrer">
+            Energy Global
+          </a>
+          <a class="botao" href="http://www.vippmix.com.br/" target="_blank" rel="noopener noreferrer">
+            Vipp Mix
+          </a>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>
