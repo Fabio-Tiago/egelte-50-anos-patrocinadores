@@ -31,17 +31,30 @@
 
       body {
         min-height: 100vh;
+        overflow-x: hidden;
         background: var(--fundo);
         color: var(--texto);
         font-family: Arial, Helvetica, sans-serif;
         -webkit-font-smoothing: antialiased;
       }
 
+      /*
+       * A página agora é 100% fluida.
+       * Antes havia um limite de 1600px que impedia a arte de acompanhar
+       * continuamente monitores/janelas maiores.
+       */
       .pagina {
-        width: min(100%, 1600px);
-        margin: 0 auto;
-        padding: clamp(28px, 5vw, 64px) clamp(18px, 4vw, 56px)
-          clamp(40px, 7vw, 88px);
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: clamp(28px, 5vw, 64px) 0 clamp(40px, 7vw, 88px);
+      }
+
+      /* Logo e conteúdo textual continuam limitados para manter boa leitura. */
+      .cabecalho,
+      .links {
+        width: min(calc(100% - 36px), 1200px);
+        margin-inline: auto;
       }
 
       .cabecalho {
@@ -58,17 +71,25 @@
         height: auto;
       }
 
+      /*
+       * A arte ocupa a largura real da viewport e recalcula seu tamanho
+       * a cada alteração na largura da janela.
+       */
       .patrocinadores {
-        width: 100%;
+        width: 100vw;
+        max-width: none;
+        overflow: hidden;
       }
 
-      .patrocinadores picture,
-      .patrocinadores img {
+      .patrocinadores picture {
         display: block;
         width: 100%;
       }
 
       .patrocinadores img {
+        display: block;
+        width: 100%;
+        max-width: none;
         height: auto;
         object-fit: contain;
       }
@@ -140,17 +161,17 @@
       }
 
       @media (max-width: 900px) {
+        .cabecalho,
+        .links {
+          width: min(calc(100% - 32px), 1200px);
+        }
+
         .botoes {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
       @media (max-width: 640px) {
-        .pagina {
-          padding-left: 16px;
-          padding-right: 16px;
-        }
-
         .cabecalho {
           padding-bottom: 20px;
         }
