@@ -38,11 +38,6 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /*
-       * A página agora é 100% fluida.
-       * Antes havia um limite de 1600px que impedia a arte de acompanhar
-       * continuamente monitores/janelas maiores.
-       */
       .pagina {
         width: 100%;
         max-width: none;
@@ -50,7 +45,6 @@
         padding: clamp(28px, 5vw, 64px) 0 clamp(40px, 7vw, 88px);
       }
 
-      /* Logo e conteúdo textual continuam limitados para manter boa leitura. */
       .cabecalho,
       .links {
         width: min(calc(100% - 36px), 1200px);
@@ -71,27 +65,31 @@
         height: auto;
       }
 
-      /*
-       * A arte ocupa a largura real da viewport e recalcula seu tamanho
-       * a cada alteração na largura da janela.
-       */
       .patrocinadores {
-        width: 100vw;
-        max-width: none;
+        width: 100%;
         overflow: hidden;
       }
 
       .patrocinadores picture {
-        display: block;
+        display: flex;
         width: 100%;
+        justify-content: center;
+        align-items: flex-start;
       }
 
+      /*
+       * Desktop/tablet: a arte respeita simultaneamente a largura e a altura
+       * disponíveis. Em monitores muito largos ela deixa de crescer pela
+       * largura quando atingir 72dvh, mantendo todos os patrocinadores visíveis.
+       */
       .patrocinadores img {
         display: block;
-        width: 100%;
-        max-width: none;
+        width: auto;
+        max-width: 100%;
         height: auto;
+        max-height: 72dvh;
         object-fit: contain;
+        object-position: center top;
       }
 
       .links {
@@ -180,6 +178,18 @@
           width: min(82vw, 390px);
         }
 
+        /* No mobile a arte vertical deve usar toda a largura, sem limite de altura. */
+        .patrocinadores picture {
+          display: block;
+        }
+
+        .patrocinadores img {
+          width: 100%;
+          max-width: 100%;
+          max-height: none;
+          height: auto;
+        }
+
         .botoes {
           grid-template-columns: 1fr;
           max-width: 430px;
@@ -223,8 +233,8 @@
           <img
             src="/galeria/Rodape-Patrocinadores---V2---HD.jpg"
             alt="Patrocinadores: Aeroar, Kepler Weber, Saur, Saturno, Energy Global e Vipp Mix"
-            width="1650"
-            height="928"
+            width="1920"
+            height="1080"
           />
         </picture>
       </section>
